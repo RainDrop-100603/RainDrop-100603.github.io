@@ -3,11 +3,11 @@ const weatherContainer=document.querySelector(".js-weather");
 const API_KEY="33a4b37f047d9d66fe381f85dc77ba6f",
   LC_COORDS="weather-coords";
 
-function saveToLocal(coords){
+function WEATHER_saveToLocal(coords){
   localStorage.setItem(LC_COORDS,JSON.stringify(coords));
 }
 
-function loadFromLocal(){
+function WEATHER_loadFromLocal(){
   return JSON.parse(localStorage.getItem(LC_COORDS));
 }
 
@@ -17,7 +17,10 @@ function weatherInfo(json){
     tempMax=json.main.temp_max,
     tempMin=json.main.temp_min,
     location=json.name;
-  weatherContainer.innerText=`${tempMax} ${tempMin} ${tempNow} ${location}`;
+  weatherContainer.innerHTML=`최저온도${tempMax}</br> 
+    최고온도: ${tempMin}</br> 
+    현재온도: ${tempNow}</br> 
+    지역: ${location}`;
 }
 
 function displayWeather(coords){
@@ -34,7 +37,7 @@ function getCoordsSuccess(position){
     latitude,
     longitude
   };
-  saveToLocal(coords);
+  WEATHER_saveToLocal(coords);
   displayWeather(coords);
 }
 
@@ -47,7 +50,7 @@ function getCoords(){
 }
 
 function init(){
-  const coords=loadFromLocal();
+  const coords=WEATHER_loadFromLocal();
   if(coords){
     displayWeather(coords);
   }else{

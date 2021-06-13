@@ -11,7 +11,7 @@ function greetUser(user){
   greet_sayHello.innerText=`Hello ${user}!`;
 }
 
-function handleSubmit(event){
+function GREET_handleSubmit(event){
   event.preventDefault(); //submit시 새로고침 방지
   const inputValue=greet_input.value;
   localStorage.setItem(LC_USER,inputValue);
@@ -21,7 +21,7 @@ function handleSubmit(event){
 
 function getUser(){
   greet_form.classList.remove(CN_INVISIBLE);
-  greet_form.addEventListener("submit",handleSubmit);
+  greet_form.addEventListener("submit",GREET_handleSubmit);
 }
 
 function init(){
