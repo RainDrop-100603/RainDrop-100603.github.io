@@ -1,6 +1,6 @@
 const weatherContainer=document.querySelector(".js-weather");
 
-const API_KEY="33a4b37f047d9d66fe381f85dc77ba6f",
+const API_KEY=,
   LC_COORDS="weather-coords";
 
 function WEATHER_saveToLocal(coords){
